@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
-import styles from './styles.css'
+import styles from './styles.css';
+import { Link } from 'react-router-dom'
 
 export default function Dashboard() {
 	const [spots, setSpots] = useState([]);
@@ -30,6 +31,9 @@ export default function Dashboard() {
 					</li>
 				))}
 			</ul>
+			<Link to="/new">
+				<button className="btn">Cadastrar novo spot</button>
+			</Link>
 		</>
 	)
 }
