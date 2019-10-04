@@ -4,7 +4,7 @@ import camera from '../../assets/camera.svg';
 
 import styles from './styles.css';
 
-export default function New(history) {
+export default function New({ history }) {
 	const [company, setCompany] = useState('');
 	const [techs, setTechs] = useState('');
 	const [price, setPrice] = useState('');
@@ -16,6 +16,7 @@ export default function New(history) {
 
 	async function handleSubmit (event) {
         event.preventDefault();
+
         const data = new FormData();
         const user_id = localStorage.getItem('user');
 
@@ -36,7 +37,7 @@ export default function New(history) {
             <label id="thumbnail" 
                    style={{ backgroundImage: `url(${preview})`}}
                    className={thumbnail ? 'has-thumbnail' : ''}>
-				<input type="file" onChange={event => setThumbnail(event.target.files)}></input>
+				<input type="file" onChange={event => setThumbnail(event.target.files[0])}></input>
 				<img src={camera} alt="Selecione a imagem"/>
 			</label>
 
